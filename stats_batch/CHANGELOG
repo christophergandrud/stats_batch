@@ -1,0 +1,6 @@
+# All changes to batchstats are documented here
+
+## Version 0.1
+
+- First release version of batchstats. Includes `batch_mean`, `batch_var`, and the wrapper
+of these two `batch_mean_var`.
