@@ -72,15 +72,42 @@ def mean_batch(new_batch, prior_mean:float=None, prior_sample_size:int=None):
         updated_mean = prior_mean + (1/total_samples) * (sum_new_batch - ((total_samples - prior_sample_size) * prior_mean))
         return (updated_mean, total_samples)
 
-def var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None):
+
+def var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None, prior_sample_size:int=None):
     """
     Find the new (approximate) variance of a sample updated by one batch.
     If only `new_batch` is supplied, `np.var` is used.
 
     Parameters
     ----------
-    [TO COMPLETE] 
+        new_batch: List[Union[int, float]]
+            List of all values in the new batch
+        prior_mean: float
+            Mean up until the new batch.
+        prior_sum_squares: float
+            Sum of the squares of the prior batch.
+        prior_sample_size: int
+            Number of samples in the prior batches.
+    
+    Returns
+    -------
+        tuple(float, float)
+            1. The variance of the new batch and prior batches.
+            2. The sum of square deviations of the new batch and prior batches.
+
+    Examples
+    --------
+    [TODO]
     """
-    if prior_sum_squares is None or prior_mean is None:
-        return np.var(new_batch)
-        
+    if prior_sum_squares is None or prior_mean is None or prior_sample_size is None:
+        return (np.var(new_batch), sum_square_deviations(new_batch))
+    else:
+        batch_mean = np.mean(new_batch)
+        total_samples = prior_sample_size + len(new_batch)
+        ssd_new_batch = sum_square_deviations(new_batch)
+        new_ssd = (prior_sum_squares + ssd_new_batch) + \
+            (prior_sample_size / total_samples) * \
+            (total_samples - prior_sample_size) * \
+            (batch_mean - prior_mean) ** 2
+        var_new = new_ssd / (total_samples - 1)
+        return (var_new, new_ssd)
