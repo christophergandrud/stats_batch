@@ -4,6 +4,28 @@ Functions to use batch algorithms to find the mean and variance of a sample.
 
 import numpy as np
 
+def sum_square_deviations(x) -> float:
+    """
+    Sum of the squared deviations of a sample from the mean.
+
+    Parameters
+    ----------
+    x : array_like
+        Sample to find the sum of the squared deviations of.
+
+    Returns
+    -------
+    float 
+        sum of the squared deviations of the sample from the mean.
+
+    Examples
+    --------
+    >>> sum_square_deviations([1, 2, 3])
+    2.0
+    """
+    return sum((x - np.mean(x)) ** 2)
+
+
 def mean_batch(new_batch, prior_mean:float=None, prior_sample_size:int=None):
     """
     Find the new (approximate) mean of a sample updated by one batch. 
@@ -20,6 +42,7 @@ def mean_batch(new_batch, prior_mean:float=None, prior_sample_size:int=None):
 
     Returns
     -------
+        tuple(float, int)
         1. The mean from the new batch and the mean of the prior batches. This will be *approximately* 
         equal to the total sample mean.
         If only `new_batch` is given, the mean of the batch is returned with the total sample size without updating.
@@ -49,3 +72,15 @@ def mean_batch(new_batch, prior_mean:float=None, prior_sample_size:int=None):
         updated_mean = prior_mean + (1/total_samples) * (sum_new_batch - ((total_samples - prior_sample_size) * prior_mean))
         return (updated_mean, total_samples)
 
+def var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None):
+    """
+    Find the new (approximate) variance of a sample updated by one batch.
+    If only `new_batch` is supplied, `np.var` is used.
+
+    Parameters
+    ----------
+    [TO COMPLETE] 
+    """
+    if prior_sum_squares is None or prior_mean is None:
+        return np.var(new_batch)
+        
