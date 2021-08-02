@@ -5,7 +5,7 @@ Functions to use batch algorithms to find the mean and variance of a sample.
 import numpy as np
 
 
-def batch_mean(new_batch, prior_sample_size:int=None, prior_mean:float=None) -> float:
+def mean_batch(new_batch, prior_sample_size:int=None, prior_mean:float=None) -> float:
     """
     Find the new mean of a sample updated by one batch. If only `new_batch` is 
     given, then `np.mean` is used.
@@ -26,9 +26,9 @@ def batch_mean(new_batch, prior_sample_size:int=None, prior_mean:float=None) -> 
 
     Examples
     -------- 
-    >>> batch_mean([1,2,3,4])
+    >>> mean_batch([1,2,3,4])
     2.5
-    >>> batch_mean([1,2,3,4], 4, 0)
+    >>> mean_batch([1,2,3,4], 4, 0)
     1.25
 
     Sources
