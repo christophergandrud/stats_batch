@@ -4,7 +4,6 @@ Functions to use batch algorithms to find the mean and variance of a sample.
 
 import numpy as np
 
-
 def mean_batch(new_batch, prior_mean:float=None, prior_sample_size:int=None):
     """
     Find the new (approximate) mean of a sample updated by one batch. 
@@ -35,7 +34,12 @@ def mean_batch(new_batch, prior_mean:float=None, prior_sample_size:int=None):
 
     References
     ----------
-    See Gandrud (2021) <https://elegant-heyrovsky-54a43f.netlify.app/privacy-first-ds-mean-var.html> for algorithm details. 
+    See Gandrud (2021) <https://elegant-heyrovsky-54a43f.netlify.app/privacy-first-ds-mean-var.html> for algorithm details.
+
+    This work is based on:
+    - Chou (2021, 5) <https://arxiv.org/pdf/2102.03316.pdf>
+
+    - Chan et al (1983) <http://www.cs.yale.edu/publications/techreports/tr222.pdf> 
     """
     if prior_sample_size is None or prior_mean is None:
         return np.mean(new_batch), len(new_batch)
