@@ -3,6 +3,7 @@ Functions to use batch algorithms to find the mean and variance of a sample.
 """
 
 import numpy as np
+import enum
 
 def sum_square_deviations(x) -> float:
     """
@@ -127,6 +128,31 @@ def var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None, pr
         var_new = new_ssd / (total_samples - 1)
         return (var_new, new_ssd)
 
+class MeanVarBatch:
+    """
+    Class for mean and variance of a sample created through batch updating.
+
+    Parameters
+    ----------
+    [TODO]
+    """
+    def __init__(self, mean, var, sum_squares, sample_size):
+        self.mean = mean
+        self.var = var
+        self.sum_squares = sum_squares
+        self.sample_size = sample_size
+
+    def __getitem__(self, item):
+        return getattr(self, item)
+
+    def print(self):
+        print("Mean: {}, Variance: {}, Sum of Squared Dev.: {}, Sample Size: {}".format(self.mean, self.var, self.sum_squares, self.sample_size))
+
+    def update(self, new_batch):
+        updated = mean_var_batch(new_batch, self.mean, self.sum_squares, self.sample_size)
+        self.__dict__.update(updated.__dict__)
+
+
 def mean_var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None, prior_sample_size:int=None):
     """
     Find the new (approximate) mean and variance of a sample updated by one batch.
@@ -161,4 +187,6 @@ def mean_var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=Non
     """
     b_mean, b_n = mean_batch(new_batch, prior_mean, prior_sample_size)
     b_var, b_ssd = var_batch(new_batch, prior_mean, prior_sum_squares, prior_sample_size)
-    return (b_mean, b_var, b_ssd, b_n)
+    return  MeanVarBatch(b_mean, b_var, b_ssd, b_n)
+
+        
