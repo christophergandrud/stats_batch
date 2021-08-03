@@ -97,7 +97,10 @@ def var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None, pr
 
     Examples
     --------
-    [TODO]
+    >>> var_batch([1,2,3,4])
+    (1.25, 5.0)
+    >>> var_batch([1,2,3,4], prior_mean = 0, prior_sum_squares = 5, prior_sample_size = 4)
+    (3.2142857142857144, 22.5)
     """
     if prior_sum_squares is None or prior_mean is None or prior_sample_size is None:
         return (np.var(new_batch), sum_square_deviations(new_batch))
