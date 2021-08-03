@@ -1,4 +1,3 @@
-from stats_batch.mean_var_batch import sum_square_deviations
 import stats_batch as sb
 import numpy as np
 import numpy.testing as npt
@@ -8,7 +7,7 @@ import numpy.testing as npt
 def test_var_batch_missing_prior():
     x = list(range(1, 100))
     assert sb.var_batch(x)[0] == np.var(x)
-    assert sb.var_batch(x)[1] == sum_square_deviations(x)  
+    assert sb.var_batch(x)[1] == sb.sum_square_deviations(x)  
 
 # Test that var_batch returns approximate `np.var` for batch updates
 def test_var_batch_multiple_batches():
