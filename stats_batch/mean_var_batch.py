@@ -132,10 +132,6 @@ def var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None, pr
 class MeanVarBatch:
     """
     Class for mean and variance of a sample created through batch updating.
-
-    Parameters
-    ----------
-    [TODO]
     """
     def __init__(self, mean, var, sum_squares, sample_size):
         self.mean = mean
@@ -207,9 +203,7 @@ def mean_var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=Non
     --------
     >>> from stats_batch import mean_var_batch
     >>> mean_var_batch([1,2,3,4])
-    (2.5, 1.25, 5.0, 4)
     >>> mean_var_batch([1,2,3,4], prior_mean = 2.5, prior_sum_squares = 5, prior_sample_size = 4)
-    (2.5, 1.4285714285714286, 10.0, 8)
     """
     b_mean, b_n = mean_batch(new_batch, prior_mean, prior_sample_size)
     b_var, b_ssd = var_batch(new_batch, prior_mean, prior_sum_squares, prior_sample_size)
