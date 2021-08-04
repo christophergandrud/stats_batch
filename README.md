@@ -53,7 +53,8 @@ batch_2_a = a[100:n]
 a_current.update(batch_2_a)
 
 a_current.print()
-## Mean: 0.09709360703521258, Variance: 1.011275131660335, Sum of Squared Dev.: 10111.74004147169, Sample Size: 10000
+##    mean   var  sum_squared_dev  sample_size
+## 0   2.5  1.25              5.0            4
 ```
 
 ### Output
