@@ -5,7 +5,7 @@ from pytest import approx
 from scipy.stats import ttest_ind_from_stats
 from scipy.stats import ttest_ind
 
-def batch_mean_var_t_test():
+def test_batch_mean_var_t_test():
     n = 10_000
     a = np.random.normal(size=n)
     b = np.random.normal(size=n)

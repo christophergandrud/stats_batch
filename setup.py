@@ -18,6 +18,7 @@ setup(
     license='MIT',
     packages=['stats_batch'],
     install_requires=['numpy',
+                      'pandas',
                       'scipy'                   
                       ],
 

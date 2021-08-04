@@ -4,6 +4,7 @@ Functions to use batch algorithms to find the mean and variance of a sample.
 
 import numpy as np
 from scipy.stats import ttest_ind_from_stats
+import pandas as pd
 from math import sqrt
 
 def sum_square_deviations(x) -> float:
@@ -174,6 +175,39 @@ class MeanVarBatch:
         return ttest_ind_from_stats(mean1=self.mean, mean2=other.mean,
                                    std1=sqrt(self.var), std2=sqrt(other.var),
                                    nobs1=self.sample_size, nobs2=other.sample_size)
+
+    def to_pandas(self):
+        """
+        Returns a pandas dataframe with the mean, variance, sum of squared deviations 
+        and sample size.
+
+        Returns
+        -------
+        pandas.DataFrame
+
+        Examples
+        --------
+        >>> sb.mean_var_batch([1,2,3,4]).to_pandas()
+           mean   var  sum_squared_dev  sample_size
+        0   2.5  1.25              5.0            4
+        """
+        return pd.DataFrame({"mean": [self.mean], "var": [self.var], 
+        "sum_squared_dev": [self.sum_squares], "sample_size": [self.sample_size]})    
+
+    def to_csv(self, filename):
+        """
+        Saves mean, variance, sum of squared deviations, and sample size to a csv file.
+
+        Parameters
+        ----------
+        filename : str
+            The name of the file to save.
+
+        Examples
+        --------
+        >>> sb.mean_var_batch([1,2,3,4]).to_csv("test.csv")
+        """
+        self.to_pandas().to_csv(filename)
 
 def mean_var_batch(new_batch, prior_mean:float=None, prior_sum_squares:float=None, prior_sample_size:int=None):
     """

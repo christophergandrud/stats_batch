@@ -56,6 +56,24 @@ a_current.print()
 ## Mean: 0.09709360703521258, Variance: 1.011275131660335, Sum of Squared Dev.: 10111.74004147169, Sample Size: 10000
 ```
 
+### Output
+
+You can output the statistics using the following methods:
+
+- `print()`
+
+- `to_pandas()`
+
+- `to_csv(filename)`
+
+For example:
+
+```python
+sb.mean_var_batch([1,2,3,4]).to_pandas()
+   mean   var  sum_squared_dev  sample_size
+0   2.5  1.25              5.0            4
+```
+
 ### Compare difference of means of two samples
 
 Imagine we have an A/B test and want to ultimately calculate the
