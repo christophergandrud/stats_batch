@@ -70,8 +70,8 @@ For example:
 
 ```python
 sb.mean_var_batch([1,2,3,4]).to_pandas()
-   mean   var  sum_squared_dev  sample_size
-0   2.5  1.25              5.0            4
+##    mean   var  sum_squared_dev  sample_size
+## 0   2.5  1.25              5.0            4
 ```
 
 ### Compare difference of means of two samples
