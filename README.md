@@ -31,7 +31,10 @@ for more details on the motivation and algorithms.
 
 ## Example
 
-### Minimal example
+### Minimal example: mean and variance
+
+Currently, **stats_batch** supports updating the mean and variance of an array of numbers using `sb.mean_var_batch` and the `update` method. 
+Here is a minimal example
 
 ``` python
 import numpy as np
