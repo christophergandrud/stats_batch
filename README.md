@@ -155,11 +155,11 @@ ttest_ind(a, b)
 
 ## Ambition
 
-Version 0.1 of **stats_batch** provides the sufficient statistics needed to analyse the difference of means of two samples using a t-test. The ambition of the package is to:
+Version 0.1 of **stats_batch** provides the sufficient statistics needed to analyse the difference of means of two samples using a t-test. The near-ish term ambition of the package is to enable:
 
-- enable Bayesian updating as new data comes in
+- enable Bayesian updating for inference as new data comes in
 
-- enable other analysis methods, including regression adjustment through recursive least squares (e.g. [Harvey 1990](https://mitpress.mit.edu/books/econometric-analysis-time-series-second-edition)). This could, for example, be used for variance reduction in the analysis of A/B tests ([Deng et al.'s (2013)](https://exp-platform.com/Documents/2013-02-CUPED-ImprovingSensitivityOfControlledExperiments.pdf) CUPED method). 
+- enable regression adjustment through recursive least squares (e.g. [Harvey 1990](https://mitpress.mit.edu/books/econometric-analysis-time-series-second-edition)). This could, for example, be used for variance reduction in the analysis of A/B tests ([Deng et al.'s (2013)](https://exp-platform.com/Documents/2013-02-CUPED-ImprovingSensitivityOfControlledExperiments.pdf) CUPED method). 
 
 ## Sources
 
