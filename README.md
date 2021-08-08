@@ -7,7 +7,17 @@ Christopher Gandrud
 **In Development**
 
 **stats\_batch** is a Python package for finding approximate statistics
-(e.g. mean and variance) using batch updating.
+using batch updating. Currently it supports:
+
+- mean
+
+- variance
+
+- sum of squared deviations
+
+- sampel size
+
+## Motivation
 
 Imagine we have a stream of data and we want to make some descriptive
 and statistical inferences with it. Rather than storing all of the data
@@ -23,11 +33,12 @@ Batch updating has at least two advantages:
     amount of potentially sensitive personal data we need to store.
 
 The key downside, is that due to rounding error, batch updated
-statistics are not exact.
+statistics are not exact. Though the rounding error is typically not
+substantively large (see [here](https://elegant-heyrovsky-54a43f.netlify.app/privacy-first-ds-mean-var.html)).
 
 See
 [here](https://elegant-heyrovsky-54a43f.netlify.app/privacy-first-ds-mean-var.html)
-for more details on the motivation and algorithms.
+for more details on the motivation, algorithms, and sources.
 
 ## Example
 
@@ -129,9 +140,8 @@ for i, new_list in enumerate(group_elements(b , 1_000)):
 Finally, we run a t-test on the batch updated data. 
 
 ```python
-"""
-Compare means of A and B using batch updated sufficient statistics
-"""
+# Compare means of A and B using batch updated sufficient statistics
+
 mean_var_a.ttest_ind(mean_var_b)
 
 ## Ttest_indResult(statistic=6.541321847403076, pvalue=6.245323161218439e-11)

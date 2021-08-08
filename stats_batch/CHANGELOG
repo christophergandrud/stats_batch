@@ -3,4 +3,5 @@
 ## Version 0.1
 
 - First release version of batchstats. Includes `batch_mean`, `batch_var`, and the wrapper
-of these two `batch_mean_var`.
+of these two `batch_mean_var` as well as methods for exporting to Pandas and running
+t-tests comparing means of two batch updated independent samples.
