@@ -4,9 +4,9 @@ Utilities for testing and illustrating stats-batch
 
 from itertools import islice
 
-def group_elements(lst, batch_size):
+def group_elements(lst:list, batch_size:int) -> list:
     """
-    Group elements of a list into chunks of size `batch_size`. 
+    Group elements of a list into chunks of size `bpipatch_size`. 
     This is a utility to illustrate stats-batch functions.
 
     Parameters
