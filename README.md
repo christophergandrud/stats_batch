@@ -151,3 +151,19 @@ ttest_ind(a, b)
 
 ## Ttest_indResult(statistic=6.541321847403074, pvalue=6.245323161218484e-11)
 ```
+
+## Ambition
+
+Version 0.1 of **stats_batch** provides the sufficient statistics needed to analyse the difference of means of two samples using a t-test. The ambition of the package is to:
+
+- enable Bayesian updating as new data comes in
+
+- enable other analysis methods, including regression adjustment through recursive least squares (e.g. [Harvey 1990](https://mitpress.mit.edu/books/econometric-analysis-time-series-second-edition)). This could, for example, be used for variance reduction in the analysis of A/B tests ([Deng et al.'s (2013)](https://exp-platform.com/Documents/2013-02-CUPED-ImprovingSensitivityOfControlledExperiments.pdf) CUPED method). 
+
+## Sources
+
+- Chou (2021) "Randomized Control Trials with Minimal Data Retention" <https://arxiv.org/abs/2102.03316>.
+
+Chan et al. (1983). "Algorithms for computing the sample variance: Analysis and recommendations". <http://www.cs.yale.edu/publications/techreports/tr222.pdf>
+
+Note that there appears to be a typo in Chou's paper for the variance formula. It is corrected in `stats_batch` using Chane et al. (1983).
