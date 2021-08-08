@@ -25,6 +25,8 @@ and statistical inferences with it. Rather than storing all of the data
 and calculating statistics all at once, we can update the statistics as
 new batches of data come in.
 
+![illustrate-batch-updating](img/batch-update-basic-illustrate.png)
+
 Batch updating has at least two advantages:
 
 -   We don’t need to store all of the data, only a small number of
