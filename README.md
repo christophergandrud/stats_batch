@@ -15,7 +15,7 @@ using batch updating. Currently it supports:
 
 - sum of squared deviations
 
-- sampel size
+- sample size
 
 ## Motivation
 
