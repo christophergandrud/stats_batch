@@ -95,7 +95,7 @@ First, for the sake of this example let’s simulate the data and create a
 function that allows us to pretend the data is coming in as batches:
 
 ```python
-from stats_batch.mean_var_batch import mean_var_batch
+import stats_batch.mean_var_batch as sb
 import numpy as np
 import stats_batch as sb
 from scipy.stats import ttest_ind
@@ -107,13 +107,9 @@ Simulate batched A/B test data
 """
 # Simulate full samples
 n = 10_000
+batch_n = 1_000
 a = np.random.normal(size=n, loc=0.1)
 b = np.random.normal(size=n, loc=0.01)
-
-# Create batches from full samples
-def group_elements(lst, chunk_size):
-    lst = iter(lst)
-    return iter(lambda: tuple(islice(lst, chunk_size)), ())
 ```
 
 Now let's batch update the data as it "comes in".
@@ -123,16 +119,16 @@ Now let's batch update the data as it "comes in".
 Batch update sufficient stattistics
 """
 # Group A
-for i, new_list in enumerate(group_elements(a , 1_000)):
+for i, new_list in enumerate(sb.group_elements(a , batch_n)):
     if i == 0:
-        mean_var_a = mean_var_batch(new_list)
+        mean_var_a = sb.mean_var_batch(new_list)
     else:
         mean_var_a.update(new_list)
 
 # Group B
-for i, new_list in enumerate(group_elements(b , 1_000)):
+for i, new_list in enumerate(sb.group_elements(b , batch_n)):
     if i == 0:
-        mean_var_b = mean_var_batch(new_list)
+        mean_var_b = sb.mean_var_batch(new_list)
     else:
         mean_var_b.update(new_list)
 ```
