@@ -41,6 +41,14 @@ See
 [here](https://elegant-heyrovsky-54a43f.netlify.app/privacy-first-ds-mean-var.html)
 for more details on the motivation, algorithms, and sources.
 
+## Install
+
+Currently, you can install stats-batch from Test PyPi:
+
+```bash
+pip3 install -i https://test.pypi.org/simple/ stats-batch
+```
+
 ## Example
 
 ### Minimal example: mean and variance
