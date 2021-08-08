@@ -164,6 +164,6 @@ Version 0.1 of **stats_batch** provides the sufficient statistics needed to anal
 
 - Chou (2021) "Randomized Control Trials with Minimal Data Retention" <https://arxiv.org/abs/2102.03316>.
 
-Chan et al. (1983). "Algorithms for computing the sample variance: Analysis and recommendations". <http://www.cs.yale.edu/publications/techreports/tr222.pdf>
+- Chan et al. (1983). "Algorithms for computing the sample variance: Analysis and recommendations". <http://www.cs.yale.edu/publications/techreports/tr222.pdf>
 
-Note that there appears to be a typo in Chou's paper for the variance formula. It is corrected in `stats_batch` using Chane et al. (1983).
+Note that there appears to be a typo in Chou's paper (as of March 2021) for the variance formula. It is corrected in `stats_batch` using Chane et al. (1983).
