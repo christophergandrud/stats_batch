@@ -3,7 +3,7 @@ stats\_batch
 Christopher Gandrud
 
 [![pytest-check](https://github.com/christophergandrud/stats_batch/actions/workflows/test-stats-batch.yaml/badge.svg)](https://github.com/christophergandrud/stats_batch/actions)
-[![code-coverage](coverage.svg)](.coverage)
+[![code-coverage](img/coverage.svg)](.coverage)
 
 **In Development**
 
