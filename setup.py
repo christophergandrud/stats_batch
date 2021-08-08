@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='stats_batch',
-    version='0.0.9000',    
+    version='0.0.9001',    
     description='Find statistics (e.g. mean and variance) using batch updating algorithms',
     long_description=long_description,
     long_description_content_type="text/markdown",
